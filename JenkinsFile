@@ -1,29 +1,63 @@
 pipeline {
-    agent { lable 'Vinod-Agent' }
-tools {
-   jdk 'Java17'
-  maven 'Maven3' 
-    }
-  stages {
-      stage("cleanup Woorkspace"){
-              steps {
-                 cleanWs()
-             }
-      } 
-      stage("Checkout from SCM"){
-               steps {
-                  git branch : 'main' , credentialsId: 'github-credentials' , url: 'https://github.com/bhardwajrishabh452-stack/dashboard_react'
-               }
-       }
-       stage("Build Application "){
-                steps {
-                   sh "mvn clean package"
-                }
+    agent any
+
+    stages {
+
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
         }
-        stage("Test Application"){
-                steps{
-                   sh "mvn test"
-                 }
-       }
-   }
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'github-credentials',
+                    url: 'https://github.com/bhardwajrishabh452-stack/dashboard_react.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Lint') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '======================================'
+            echo '       BUILD SUCCESSFUL ✅'
+            echo '======================================'
+        }
+
+        failure {
+            echo '======================================'
+            echo '       BUILD FAILED ❌'
+            echo '       Check Console Output'
+            echo '======================================'
+        }
+
+        always {
+            echo 'Pipeline finished.'
+        }
+    }
 }
