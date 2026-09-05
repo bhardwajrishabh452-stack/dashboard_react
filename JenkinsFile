@@ -1,0 +1,29 @@
+pipeline {
+    agent { lable 'Vinod-Agent' }
+tools {
+   jdk 'Java17'
+  maven 'Maven3' 
+    }
+  stages {
+      stage("cleanup Woorkspace"){
+              steps {
+                 cleanWs()
+             }
+      } 
+      stage("Checkout from SCM"){
+               steps {
+                  git branch : 'main' , credentialsId: 'github-credentials' , url: 'https://github.com/bhardwajrishabh452-stack/dashboard_react'
+               }
+       }
+       stage("Build Application "){
+                steps {
+                   sh "mvn clean package"
+                }
+        }
+        stage("Test Application"){
+                steps{
+                   sh "mvn test"
+                 }
+       }
+   }
+}
