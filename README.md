@@ -1,41 +1,94 @@
-# Shadcn Admin - Free Tailwind CSS & React Admin Dashboard Website Template
+# Shadcn Admin Dashboard
 
-#### Preview
+A modern, responsive, and customizable **Admin Dashboard** built with **React, TypeScript, Vite, Tailwind CSS, and shadcn/ui-style components**.
 
- - [Demo](https://themewagon.github.io/shadcn-admin/)
+The project provides a clean dashboard interface with reusable components, responsive layouts, tables, charts, forms, authentication-related integrations, and multiple dashboard pages.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/shadcn-admin/)
+## ✨ Features
 
-## Getting Started
+- 📊 Modern admin dashboard interface
+- 📱 Fully responsive design
+- 🎨 Tailwind CSS styling
+- 🧩 Reusable UI components
+- 🌓 Light / Dark / System theme support
+- 📈 Interactive charts and data visualization
+- 📋 Data tables with sorting and filtering
+- 📝 Forms with validation
+- 🔍 Command menu
+- 🔔 Toast notifications
+- 🧭 Client-side routing
+- ⚡ Fast Vite development environment
+- 🔐 Clerk React integration
+- 🔄 TanStack Query for server-state management
+- 📦 Zustand for state management
+- 🌐 Axios for API requests
+- 🧪 Vitest testing support
+- 🧹 ESLint and Prettier configuration
+- 🚀 Production build support
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/shadcn-admin.git
-```
-2. Install Dependencies
-```
-npm i
-```
-3. Run the development server:
+## 🛠️ Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Technology | Purpose |
+|------------|---------|
+| React | Frontend UI |
+| TypeScript | Type-safe development |
+| Vite | Development server and build tool |
+| Tailwind CSS | Styling |
+| Radix UI | Accessible UI primitives |
+| TanStack Router | Application routing |
+| TanStack Query | Data fetching and caching |
+| TanStack Table | Advanced data tables |
+| Zustand | State management |
+| Axios | HTTP/API requests |
+| Recharts | Charts and visualization |
+| React Hook Form | Form management |
+| Zod | Schema validation |
+| Lucide React | Icons |
+| Sonner | Toast notifications |
+| Clerk | Authentication integration |
+| Vitest | Testing |
+| ESLint | Code quality |
+| Prettier | Code formatting |
 
-## Author 
-```
-Design and code is completely written by Sat Naing and development team. 
-```
+## 📁 Project Structure
 
-## License
-
- - Design and Code is Copyright &copy; <a href="https://github.com/satnaing" target="_blank">Sat Naing</a>
- - Licensed cover under [MIT]
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+```text
+dashboard_react/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   │   ├── brand-icons/
+│   │   └── custom/
+│   │
+│   ├── components/
+│   │   └── Reusable UI components
+│   │
+│   ├── features/
+│   │   └── Dashboard/application features
+│   │
+│   ├── hooks/
+│   │   └── Custom React hooks
+│   │
+│   ├── lib/
+│   │   └── Utilities and configuration
+│   │
+│   ├── routes/
+│   │   └── Application routes
+│   │
+│   ├── styles/
+│   │   └── Global styling
+│   │
+│   └── main.tsx
+│
+├── .env.example
+├── .gitignore
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
