@@ -9,11 +9,13 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
+        stage('SCM Checkout') {
             steps {
-                git branch: 'main',
+                git(
+                    branch: 'main',
                     credentialsId: 'github-credentials',
                     url: 'https://github.com/bhardwajrishabh452-stack/dashboard_react.git'
+                )
             }
         }
 
@@ -31,7 +33,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'npm test -- --run'
             }
         }
 
@@ -44,20 +46,15 @@ pipeline {
 
     post {
         success {
-            echo '======================================'
-            echo '       BUILD SUCCESSFUL ✅'
-            echo '======================================'
+            echo 'BUILD SUCCESSFUL'
         }
 
         failure {
-            echo '======================================'
-            echo '       BUILD FAILED ❌'
-            echo '       Check Console Output'
-            echo '======================================'
+            echo 'BUILD FAILED'
         }
 
         always {
-            echo 'Pipeline finished.'
+            echo 'Pipeline execution completed.'
         }
     }
 }
